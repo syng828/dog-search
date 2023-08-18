@@ -18,7 +18,8 @@ export default function SingleBreed() {
     <div>{breed.map ((b) => (
       <section>
         <div className = "left-half">
-          <img className = 'big-picture' src = {`https://cdn2.thedogapi.com/images/${b.reference_image_id}.jpg`} 
+          <img className = 'big-picture' src = {`https://cdn2.thedogapi.com/images/${b.reference_image_id}.jpg`}
+          alt = {b.name} 
       onError={({ currentTarget }) => {
         currentTarget.onerror = null; // prevents looping
         currentTarget.src=`https://cdn2.thedogapi.com/images/${b.reference_image_id}.png`;
