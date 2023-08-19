@@ -93,8 +93,6 @@ section{
 }
 
 .big-picture { 
-  flex: 2;
-  margin-left: 50px;
   height: 300px;
   border-radius: 10px;
   box-shadow: 2px 2px rgb(146, 128, 117);
@@ -130,6 +128,7 @@ p {
   color:#2f1313;
   align-items: flex-end;
   align-self:flex-end;
+  padding-right: 10px;
 }
 
 .description { 
@@ -158,6 +157,9 @@ p {
     margin: 0;
     max-width: 350px;
   }
+  .name { 
+    font-size: 40px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -172,5 +174,8 @@ p {
   }
   .description { 
     display: none;
+  }
+  .name { 
+    font-size: 30px;
   }
 }
