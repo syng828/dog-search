@@ -83,6 +83,15 @@ input {
   background-color: white;
 }
 
+.reset-btn { 
+  max-width: 50px;
+  margin-left: 10px;
+}
+
+.reset-btn:hover {  
+  border-color: #ae6427;
+}
+
 section{ 
   display: flex;
   justify-content: center;
@@ -177,5 +186,8 @@ p {
   }
   .name { 
     font-size: 30px;
+  }
+  .reset-btn {  
+    margin: 0; 
   }
 }

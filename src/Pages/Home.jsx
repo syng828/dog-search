@@ -10,12 +10,14 @@ export default function Home() {
   const[currentPage, setPage] = useState(1); 
   const postsPerPage = 18; 
 
-  useEffect(()=> {
-    fetch('https://api.thedogapi.com/v1/breeds/')
+  const fetchInit = () => { fetch('https://api.thedogapi.com/v1/breeds/')
     .then(res => res.json())
     .then(json => setDogs(json))
     .catch((error) => { 
-      console.log(error)})
+      console.log(error)})} 
+
+  useEffect(()=> {
+      fetchInit(); 
   }
   ,[]) 
 
@@ -30,6 +32,11 @@ export default function Home() {
   const handleSubmit = (e) => { 
     e.preventDefault(); 
     searchDog();
+  }
+
+  const onReset = () => { 
+    fetchInit();
+    setBreed('');
   }
   
   const lastPostIndex = currentPage * postsPerPage; 
@@ -58,6 +65,12 @@ export default function Home() {
         placeholder = "Search here to filter by breed"
         onChange = {(e) => setBreed(e.target.value)}
         />
+        <input
+        className = 'reset-btn'
+        type = "button" 
+        onClick = {onReset}
+        value = 'X'
+        /> 
       </form>
       </div>
 
