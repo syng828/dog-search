@@ -35,7 +35,7 @@ export default function SingleBreed() {
         <p>Breed Group: {b.breed_group}</p>
         <p>Life Span: {b.life_span}</p>
         <p>Temperament: {b.temperament}</p>
-        <p>{b.description}</p>
+        <p className = "description">{b.description}</p>
       </div>
       </div>
 
