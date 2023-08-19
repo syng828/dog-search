@@ -1,10 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Pagination from '../Components/Pagination';
+
 
 export default function Home() {
   const[dogs, setDogs] = useState([]);
   const[breed, setBreed] = useState('');
+  const[currentPage, setPage] = useState(1); 
+  const postsPerPage = 18; 
 
   useEffect(()=> {
     fetch('https://api.thedogapi.com/v1/breeds/')
@@ -27,6 +31,15 @@ export default function Home() {
     e.preventDefault(); 
     searchDog();
   }
+  
+  const lastPostIndex = currentPage * postsPerPage; 
+  const firstPostIndex = lastPostIndex - postsPerPage; 
+  const currentPost = dogs.slice(firstPostIndex, lastPostIndex);
+
+  const paginate = (pageNum) => (
+    setPage(pageNum)
+  )
+
 
   return (
     <div className = 'home-body'>
@@ -50,7 +63,7 @@ export default function Home() {
 
       {!dogs ? (<h1>Loading...</h1>): 
         (<div className = "bottom-half">
-        {dogs.map ((dog) => (
+        {currentPost.map ((dog) => (
           <Link to ={`/${dog.name}`} key = {dog.id} style = {{ color: 'inherit', textDecoration: 'inherit'}}>
             <article>
               <h3 className = "dog-header">{dog.name}</h3>
@@ -62,9 +75,14 @@ export default function Home() {
               }}></img> 
             </article> </Link>
         ))}
-      </div>
+      </div> 
         )
-      }
+      }  
+        <Pagination 
+        postsPerPage = {postsPerPage} 
+        totalPosts = {dogs.length} 
+        paginate = {paginate}
+        />
     </div>
   )
 }

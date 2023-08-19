@@ -19,6 +19,24 @@
   justify-items: center;
   background-color:rgb(228, 204, 175);
   flex-grow: 1;
+  padding-bottom: 10px;
+}
+
+.page-button-layout { 
+  background-color:rgb(228, 204, 175);
+  text-align: right;
+}
+
+.page-button { 
+  margin-inline: 5px;
+  width: 30px; 
+  height: 30px;
+  border-color:rgb(146, 128, 117);
+  background-color: rgba(231, 218, 210);
+}
+
+.page-button:hover {  
+  background-color:rgb(223, 203, 190);
 }
 
 .title-bar { 
@@ -38,7 +56,6 @@ i {
 
 h3 { 
   color:		#ae6427;
-  background-color: rgba(231, 218, 210);
   font-size: 20px;
 }
 
@@ -72,7 +89,7 @@ section{
   align-items: center;
   height: 100%;
   min-height: 100vh;
-  background: url(v1008-25-b.jpg);
+  background: url(v1008-25-b-min.jpg);
 
 }
 
